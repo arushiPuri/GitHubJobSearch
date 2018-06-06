@@ -1,0 +1,21 @@
+<div ng-controller="MainController">
+  <form>
+  <input type = "text" ng-model = "jobDescription" placeholder="Filter by title, benefits, companies, expertise" size = 50>
+  <input type = "text" ng-model = "jobLocation" placeholder="Filter by city, state, zip code or country" size = 50>
+  <input type="submit" ng-click = "jobData()">
+  <input type="checkbox" ng-model = "jobFullTime" name = "jobFullTime"> Full Time Jobs Only
+</form>
+<div>{{error}}</div>
+<table style="width:100%" ng-show="jobDetails && !error">
+<tr>
+  <th> Title </th>
+  <th> Location </th>
+  <th> Type </th>
+</tr>
+<tr ng-repeat = "data in jobDetails">
+  <td><a ng-href = "#!/jobs/{{data.id}}">{{data.title}} </a></td>
+  <td> {{data.location}} </td>
+  <td> {{data.type}} </td>
+</tr>
+</table>
+</div>
